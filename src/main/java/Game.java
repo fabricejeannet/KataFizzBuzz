@@ -5,27 +5,28 @@ public class Game {
 
     public static void main(String [] args) {
         Game game = new Game();
-        game.countTo(100);
+        game.countFromOnetTo(100);
     }
 
-    private void countTo(int limit) {
+    private void countFromOnetTo(int limit) {
         for (int i = 1; i <= limit; i++) {
-            System.out.println(getStringToDisplayFor(i));
+            currentNumber = i;
+            System.out.println(stringToDisplay());
         }
     }
 
-    public boolean isMultipleOfThree(int number) {
-        return number % 3 == 0;
+    public boolean currentNumberIsMultipleOfThree() {
+        return currentNumber % 3 == 0;
     }
 
-    public boolean isMultipleOfFive(int number) {
-        return number % 5 == 0;
+    public boolean currentNumberIsMultipleOfFive() {
+        return currentNumber % 5 == 0;
     }
 
-    public String getStringToDisplayFor(int number) {
+    public String stringToDisplay() {
 
-        boolean multipleOfThree = isMultipleOfThree(number);
-        boolean multipleOfFive = isMultipleOfFive(number);
+        boolean multipleOfThree = currentNumberIsMultipleOfThree();
+        boolean multipleOfFive = currentNumberIsMultipleOfFive();
         boolean multipleOfBoth = multipleOfThree && multipleOfFive;
 
         if(multipleOfBoth) {
@@ -39,7 +40,9 @@ public class Game {
         if(multipleOfFive) {
             return "Buzz";
         }
-        
-        return "" + number;
+
+        return "" + currentNumber;
     }
+
+    public int currentNumber;
 }

@@ -11,13 +11,9 @@ public class Tests {
     public void recognizeTheGivenNumberIsMultipleOfThree() {
         Game game = new Game();
 
-        boolean threeIsMultipleOfThree = game.isMultipleOfThree(3);
-        boolean sixIsMultipleOfThree = game.isMultipleOfThree(6);
-        boolean nineIsMultipleOfThree = game.isMultipleOfThree(9);
+        game.currentNumber = 9;
 
-        assertThat(threeIsMultipleOfThree).isTrue();
-        assertThat(sixIsMultipleOfThree).isTrue();
-        assertThat(nineIsMultipleOfThree).isTrue();
+        assertThat(game.currentNumberIsMultipleOfThree()).isTrue();
     }
 
 
@@ -25,9 +21,9 @@ public class Tests {
     public void recognizeTheGivenNumberisNotMultipleOfThree() {
         Game game = new Game();
 
-        boolean sevenIsMultipleOfThree = game.isMultipleOfThree(7);
+        game.currentNumber = 7;
 
-        assertThat(sevenIsMultipleOfThree).isFalse();
+        assertThat(game.currentNumberIsMultipleOfThree()).isFalse();
     }
 
 
@@ -35,22 +31,19 @@ public class Tests {
     public void recognizeTheGivenNumberisMultipleOfFive() {
         Game game = new Game();
 
-        boolean fiveIsMultipleOfFive = game.isMultipleOfFive(5);
-        boolean tenIsMultipleOfFive = game.isMultipleOfFive(10);
+        game.currentNumber = 5;
 
-        assertThat(fiveIsMultipleOfFive).isTrue();
-        assertThat(tenIsMultipleOfFive).isTrue();
+        assertThat(game.currentNumberIsMultipleOfFive()).isTrue();
     }
 
     @Test
     public void recognizeTheGivenNumberIsNotMultipleOfFive() {
         Game game = new Game();
 
-        boolean fourIsMultipleOfFive = game.isMultipleOfFive(4);
-        boolean sevenIsMultipleOfFive = game.isMultipleOfFive(7);
+        game.currentNumber = 4;
 
-        assertThat(fourIsMultipleOfFive).isFalse();
-        assertThat(sevenIsMultipleOfFive).isFalse();
+        assertThat(game.currentNumberIsMultipleOfFive()).isFalse();
+
     }
 
 
@@ -58,37 +51,36 @@ public class Tests {
     public void recognizeTheGivenNumberIsNotMultipleOfThreeAndFive() {
         Game game = new Game();
 
-        boolean fithteenIsMultipleOfThree = game.isMultipleOfThree(15);
-        boolean fithteenIsMultipleOfFive = game.isMultipleOfFive(15);
+        game.currentNumber = 15;
 
-        assertThat(fithteenIsMultipleOfThree).isTrue();
-        assertThat(fithteenIsMultipleOfFive).isTrue();
+        assertThat(game.currentNumberIsMultipleOfThree()).isTrue();
+        assertThat(game.currentNumberIsMultipleOfFive()).isTrue();
     }
 
     @Test
     public void returnsFizzForMultipleOfThree() {
         Game game = new Game();
 
-        String stringToDisplay = game.getStringToDisplayFor(3);
+        game.currentNumber = 3;
 
-        assertThat(stringToDisplay).isEqualTo("Fizz");
+        assertThat(game.stringToDisplay()).isEqualTo("Fizz");
     }
 
     @Test
     public void returnsBuzzForMultipleOfFive() {
         Game game = new Game();
 
-        String stringToDisplay = game.getStringToDisplayFor(5);
+        game.currentNumber = 5;
 
-        assertThat(stringToDisplay).isEqualTo("Buzz");
+        assertThat(game.stringToDisplay()).isEqualTo("Buzz");
     }
 
     @Test
     public void returnsFizzBuzzForMultipleOfThreeAndFive() {
         Game game = new Game();
 
-        String stringToDisplay = game.getStringToDisplayFor(15);
+        game.currentNumber = 15;
 
-        assertThat(stringToDisplay).isEqualTo("FizzBuzz");
+        assertThat(game.stringToDisplay()).isEqualTo("FizzBuzz");
     }
 }
