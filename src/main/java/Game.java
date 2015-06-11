@@ -5,10 +5,10 @@ public class Game {
 
     public static void main(String [] args) {
         Game game = new Game();
-        game.countFromOnetTo(100);
+        game.displayNumbersFromOnetTo(100);
     }
 
-    private void countFromOnetTo(int limit) {
+    private void displayNumbersFromOnetTo(int limit) {
         for (int i = 1; i <= limit; i++) {
             currentNumber = i;
             System.out.println(stringToDisplay());
